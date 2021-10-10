@@ -13,15 +13,13 @@ exports.create_user = (req,res)=>{
         gender : req.body.gender,
         status : req.body.status
     })
-
+    const userDemo = req.body;
     user.save(user)
         .then(data=>{
-            res.redirect('/add-user');
+            res.render('add-user',{pageErrors: 0});
         })
         .catch(err=>{
-            res.status(500).send({
-                message:err.message || "Some error occured while creating a user"
-            });
+            res.render('add-user', {pageErrors: 1, users: userDemo});
         });
 }
 

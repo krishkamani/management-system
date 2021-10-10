@@ -11,7 +11,7 @@ exports.homeRoutes = (req, res)=>{
 }
 
 exports.addUserRoutes = (req, res) =>{
-    res.render('add-user');
+    res.render('add-user', {pageErrors: 2});
 }
 
 exports.updateUserRoutes = (req, res)=>{
