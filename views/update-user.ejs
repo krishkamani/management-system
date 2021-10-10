@@ -1,0 +1,84 @@
+<!--start header -->
+<%- include('includes/_header')%>
+<!--end header -->
+ <!-- start main -->
+ <main id="site-main">
+    <div class="container">
+        <div class="box-nav d-flex justify-between">
+            <div class="filter">
+                <a href="/"><i class="fas fa-angle-double-left"></i> All Users</a>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center align-items-center">
+
+            <div class="row" style="width: 70%;">
+                <div class="d-flex justify-content-center align-items-center">
+                    <h2 style="font-weight: bold;">Use the below form to update user</h2>
+        <!-- start form handling-->
+        <form method="POST" id="update_user">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <input type="hidden" name="id" value="<%= user._id %>">
+                    <label for="inputName">Name</label>
+                    <input type="text" class="form-control" name="name" value="<%= user.name %>" id="inputName" placeholder="Krish" required>
+                  </div>
+                <div class="form-group col-md-4">
+                  <label for="inputEmail">Email</label>
+                  <input type="email" class="form-control" name="email" value="<%= user.email %>" id="inputEmail" placeholder="test@gmail.com" required>
+                </div>
+              </div>
+              <fieldset class="form-group">
+                <div class="row">
+                  <legend class="col-form-label col-sm-1 pt-0">Gender</legend>
+                  <div class="col-sm-10">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="gender" id="gridRadios1" value="Male" <%= user.gender == 'Male' ? 'checked' : '' %>>
+                      <label class="form-check-label" for="gridRadios1">
+                        Male
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="gender" id="gridRadios2" value="Female" <%= user.gender == 'Female' ? 'checked' : '' %>>
+                      <label class="form-check-label" for="gridRadios2">
+                        Female
+                      </label>
+                    </div>
+                    <div class="form-check disabled">
+                      <input class="form-check-input" type="radio" name="gender" id="gridRadios3" value="Other" <%= user.gender == 'Other' ? 'checked' : '' %>>
+                      <label class="form-check-label" for="gridRadios3">
+                        Other
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+              <!-- <div class="form-group">
+                <label for="inputAddress2">Address 2</label>
+                <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+              </div> -->
+              <div class="form-row">
+                <!-- <div class="form-group col-md-6">
+                  <label for="inputCity">City</label>
+                  <input type="text" class="form-control" id="inputCity">
+                </div> -->
+                <div class="form-group col-md-2">
+                  <label for="inputState">State</label>
+                  <select id="inputState" class="form-control" name="status">
+                    <option <%= user.status == 'Active' ? 'selected' : '' %> >Active</option>
+                    <option <%= user.status == 'InActive' ? 'selected' : '' %> >InActive</option>
+                  </select>
+                </div>
+              </div>
+              
+              <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <!-- start form handling-->
+        </div>
+        </div>
+        </div>
+    </div>
+</main>
+<!-- end main -->    
+<!--start footer -->
+<%- include('includes/_footer')%>
+<!--end footer -->
